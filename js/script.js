@@ -1,5 +1,5 @@
-import { get } from './storage.js';
-import Keyboard from './Keyboard.js';
+import { get } from './storage';
+import Keyboard from './Keyboard';
 
 // порядок строк на клавиатуре
 const rowsOrder = [

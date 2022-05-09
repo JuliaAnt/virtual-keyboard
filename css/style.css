@@ -42,6 +42,7 @@ body {
   flex-direction: column;
   justify-content: center;
   transition: 0.2s;
+  cursor: pointer;
 }
 .keyboard .keyboard__row .keyboard__key:hover {
   border: 3px solid #a41a1a;

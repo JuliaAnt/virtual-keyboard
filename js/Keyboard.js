@@ -1,7 +1,7 @@
-import * as storage from './storage.js';
-import create from './utils/page.js';
-import language from './layouts/index.js'; // {en, ru}
-import Key from './Key.js';
+import * as storage from './storage';
+import create from './utils/page';
+import language from './layouts/languages'; // {en, ru}
+import Key from './Key';
 
 const main = create('main', '', [
   create('h1', 'title', 'RSS Virtual Keyboard'),

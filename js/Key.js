@@ -1,4 +1,4 @@
-import create from './utils/page.js';
+import create from './utils/page';
 
 export default class Key {
   constructor({ small, shift, code }) {
