@@ -7,7 +7,7 @@
     "lint": "eslint --ext .js,.jsx .",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "publish": "node publish.js"
+    "publish": "npm run lint && npm run build && node publish.js"
   },
   "repository": {
     "type": "git",

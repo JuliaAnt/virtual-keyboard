@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: ['airbnb-base', 'prettier'],
-  ignorePatterns: ['dist/*.js'],
+  ignorePatterns: ['dist/**/*.js', 'publish.js'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

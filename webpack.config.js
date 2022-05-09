@@ -4,12 +4,15 @@ module.exports = {
   entry: './js/script.js',
   output: {
     filename: 'js/main.js',
+    clean: true,
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: 'index.html' }],
-      patterns: [{ from: 'assets', to: 'assets' }],
-      patterns: [{ from: 'css', to: 'css' }],
+      patterns: [
+        { from: 'index.html' },
+        { from: 'assets', to: 'assets' },
+        { from: 'css', to: 'css' },
+      ],
     }),
   ],
 };
