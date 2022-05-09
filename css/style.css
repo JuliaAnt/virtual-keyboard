@@ -2,8 +2,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
-  max-width: 915px;
+  width: 915px;
   margin: 0 auto;
+}
+
+.output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  border: 2px solid #5a0e0e;
+  border-radius: 10px;
+  padding: 5px;
+  width: 910px;
 }
 
 .keyboard {
@@ -14,6 +24,7 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 10px;
+  width: 915px;
 }
 .keyboard .keyboard__row {
   display: grid;
@@ -32,16 +43,33 @@ body {
   justify-content: center;
   transition: 0.2s;
 }
+.keyboard .keyboard__row .keyboard__key:hover {
+  border: 3px solid #a41a1a;
+  transition: 0.2s;
+}
 .keyboard .keyboard__row .keyboard__key .sub {
   padding: 0 3px;
   justify-content: flex-start;
   align-items: flex-start;
+  color: #a41a1a;
 }
 .keyboard .keyboard__row .keyboard__key .letter {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px;
+  color: #ff0000;
+  font-weight: bold;
+}
+.keyboard .keyboard__row .keyboard__key .sub-active {
+  color: #ff0000;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.keyboard .keyboard__row .keyboard__key .sub-inactive {
+  color: #a41a1a;
+  font-weight: normal;
+  transition: 0.2s;
 }
 .keyboard .keyboard__row .active {
   color: #ff0000;
@@ -51,8 +79,10 @@ body {
   -moz-box-shadow: 0px 0px 73px 3px rgb(164, 26, 26);
   box-shadow: 0px 0px 73px 3px rgb(164, 26, 26);
   transition: 0.2s;
-  font-weight: bold;
   font-size: 18px;
+}
+.keyboard .keyboard__row .active .letter {
+  color: #ff0000;
 }
 
 div[data-code=Space] {

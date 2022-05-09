@@ -2,8 +2,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
-  max-width: 915px;
+  width: 915px;
   margin: 0 auto;
+}
+
+.output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  border: 2px solid #5a0e0e;
+  border-radius: 10px;
+  padding: 5px;
+  width: 910px;
 }
 
 .keyboard {
@@ -14,6 +24,7 @@ body {
   color: #fff;
   padding: 5px;
   border-radius: 10px;
+  width: 915px;
 
   .keyboard__row {
     display: grid;
@@ -33,10 +44,17 @@ body {
       justify-content: center;
       transition: 0.2s;
 
+      &:hover {
+        border: 3px solid #a41a1a;
+        transition: 0.2s;
+      }
+
       .sub {
         padding: 0 3px;
         justify-content: flex-start;
         align-items: flex-start;
+        color: #a41a1a;
+        // color: rgb(155, 155, 155);
       }
 
       .letter {
@@ -44,6 +62,20 @@ body {
         justify-content: center;
         align-items: center;
         padding: 4px;
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      .sub-active {
+        color: #ff0000;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+
+      .sub-inactive {
+        color: #a41a1a;
+        font-weight: normal;
+        transition: 0.2s;
       }
     }
 
@@ -55,31 +87,35 @@ body {
       -moz-box-shadow: 0px 0px 73px 3px rgba(164, 26, 26, 1);
       box-shadow: 0px 0px 73px 3px rgba(164, 26, 26, 1);
       transition: 0.2s;
-      font-weight: bold;
+      // font-weight: bold;
       font-size: 18px;
+
+      .letter {
+        color: #ff0000;
+      }
     }
   }
 }
 
-div[data-code="Space"] {
+div[data-code='Space'] {
   width: 280px;
 }
-div[data-code="ShiftLeft"] {
+div[data-code='ShiftLeft'] {
   width: 100px;
 }
-div[data-code="ControlRight"] {
+div[data-code='ControlRight'] {
   width: 80px;
 }
-div[data-code="Enter"] {
+div[data-code='Enter'] {
   width: 90px;
 }
-div[data-code="Tab"] {
+div[data-code='Tab'] {
   width: 70px;
 }
-div[data-code="CapsLock"] {
+div[data-code='CapsLock'] {
   width: 90px;
 }
-div[data-code="Backspace"] {
+div[data-code='Backspace'] {
   width: 95px;
 }
 // div[data-code="ShiftRight"] {

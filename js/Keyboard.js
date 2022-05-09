@@ -189,11 +189,13 @@ export default class Keyboard {
 
   switchUpperCase(isTrue) {
     if (isTrue) {
-      this.keyButtons.forEach((button) => {
-        if (button.sub) {
+      this.keyButtons = this.keyButtons.map((button) => {
+        const newButton = { ...button };
+
+        if (button.sub.innerHTML) {
           if (this.shiftKey) {
-            button.sub.classList.add('sub-active');
-            button.letter.classList.add('sub-inactive');
+            newButton.sub.classList.add('sub-active');
+            newButton.letter.classList.add('sub-inactive');
           }
         }
 
@@ -203,31 +205,36 @@ export default class Keyboard {
           !this.shiftKey &&
           !button.sub.innerHTML
         ) {
-          button.letter.innerHTML = button.shift;
+          newButton.letter.innerHTML = button.shift;
         } else if (!button.isFnKey && this.isCaps && this.shiftKey) {
-          button.letter.innerHTML = button.small;
+          newButton.letter.innerHTML = button.small;
         } else if (!button.isFnKey && !button.sub.innerHTML) {
-          button.letter.innerHTML = button.shift;
+          newButton.letter.innerHTML = button.shift;
         }
+        return newButton;
       });
     } else {
-      this.keyButtons.forEach((button) => {
+      this.keyButtons = this.keyButtons.map((button) => {
+        const newButton = { ...button };
+
         if (button.sub.innerHTML && !button.isFnKey) {
-          button.sub.classList.remove('sub-active');
-          button.letter.classList.remove('sub-inactive');
+          newButton.sub.classList.remove('sub-active');
+          newButton.letter.classList.remove('sub-inactive');
 
           if (!this.isCaps) {
-            button.letter.innerHTML = button.small;
-          } else if (!this.isCaps) {
-            button.letter.innerHTML = button.shift;
+            newButton.letter.innerHTML = button.small;
           }
+          // else if (!this.isCaps) {
+          //   button.letter.innerHTML = button.shift;
+          // }
         } else if (!button.isFnKey) {
           if (this.isCaps) {
-            button.letter.innerHTML = button.shift;
+            newButton.letter.innerHTML = button.shift;
           } else {
-            button.letter.innerHTML = button.small;
+            newButton.letter.innerHTML = button.small;
           }
         }
+        return newButton;
       });
     }
   }

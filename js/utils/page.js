@@ -38,16 +38,14 @@ export default function create(el, classNames, child, parent, ...dataAttr) {
     dataAttr.forEach(([attrName, attrValue]) => {
       if (attrValue === '') {
         element.setAttribute(attrName, '');
+        return;
+      }
+      if (
+        attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck/)
+      ) {
+        element.setAttribute(attrName, attrValue);
       } else {
-        if (
-          attrName.match(
-            /value|id|placeholder|cols|rows|autocorrect|spellcheck/,
-          )
-        ) {
-          element.setAttribute(attrName, attrValue);
-        } else {
-          element.dataset[attrName] = attrValue;
-        }
+        element.dataset[attrName] = attrValue;
       }
     });
   }
