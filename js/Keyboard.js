@@ -1,6 +1,6 @@
 import * as storage from './storage';
 import create from './utils/page';
-import language from './layouts/languages'; // {en, ru}
+import language from './layouts/languages';
 import Key from './Key';
 
 const main = create('main', '', [
@@ -16,12 +16,11 @@ const main = create('main', '', [
 export default class Keyboard {
   constructor(rowsOrder) {
     this.rowsOrder = rowsOrder;
-    this.keysPressed = {}; // this.keysPressed[ShiftLeft]...
+    this.keysPressed = {};
     this.isCaps = false;
   }
 
   init(langCode) {
-    // ru, en
     this.keyBase = language[langCode];
     this.output = create(
       'textarea',
@@ -43,7 +42,7 @@ export default class Keyboard {
   }
 
   generateLayout() {
-    this.keyButtons = []; // Key()
+    this.keyButtons = [];
     this.rowsOrder.forEach((row, i) => {
       const rowElement = create('div', 'keyboard__row', null, this.container, [
         'row',
@@ -72,7 +71,7 @@ export default class Keyboard {
     if (!keyDiv) return;
     const {
       dataset: { code },
-    } = keyDiv; // const code = keyDiv.dataset.code;
+    } = keyDiv;
     keyDiv.addEventListener('mouseleave', this.resetButtonState);
     this.handleEvent({ code, type: e.type });
   };
@@ -94,8 +93,9 @@ export default class Keyboard {
     if (!keyObj) return;
     this.output.focus();
 
+    // нажатие кнопок
     if (type.match(/keydown|mousedown/)) {
-      if (type.match(/key/)) e.preventDefault(); // e.shiftKey = false либо true
+      if (type.match(/key/)) e.preventDefault();
 
       if (code.match(/Shift/)) this.shiftKey = true;
 
@@ -103,7 +103,7 @@ export default class Keyboard {
 
       keyObj.div.classList.add('active');
 
-      // Caps down
+      // нажатие Caps
       if (code.match(/Caps/) && !this.isCaps) {
         this.isCaps = true;
         this.switchUpperCase(true);
@@ -113,7 +113,7 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
-      // switch language
+      // изменение языка
 
       if (code.match(/Control/)) this.ctrlKey = true;
       if (code.match(/Alt/)) this.altKey = true;
@@ -136,10 +136,8 @@ export default class Keyboard {
           );
         }
       }
-      // release button
+      // отжатие кнопок
     } else if (type.match(/keyup|mouseup/)) {
-      // keyObj.div.classList.remove("active");
-
       if (code.match(/Shift/)) {
         this.shiftKey = false;
         this.switchUpperCase(false);
@@ -153,8 +151,8 @@ export default class Keyboard {
   };
 
   switchLanguage = () => {
-    const langAbbr = Object.keys(language); // ['en', 'ru']
-    let langIdx = langAbbr.indexOf(this.container.dataset.language); // 1
+    const langAbbr = Object.keys(language);
+    let langIdx = langAbbr.indexOf(this.container.dataset.language);
     this.keyBase =
       langIdx + 1 < langAbbr.length
         ? language[langAbbr[(langIdx += 1)]]
@@ -224,9 +222,6 @@ export default class Keyboard {
           if (!this.isCaps) {
             newButton.letter.innerHTML = button.small;
           }
-          // else if (!this.isCaps) {
-          //   button.letter.innerHTML = button.shift;
-          // }
         } else if (!button.isFnKey) {
           if (this.isCaps) {
             newButton.letter.innerHTML = button.shift;
