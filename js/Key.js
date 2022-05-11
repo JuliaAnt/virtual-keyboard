@@ -25,10 +25,7 @@ export default class Key {
       [this.sub, this.letter],
       null,
       ['code', this.code],
-      this.isFnKey ? ['fn', 'true'] : ['fn', 'false'], // стилизовать функциональные клавиши отдельно
+      this.isFnKey ? ['fn', 'true'] : ['fn', 'false'],
     );
   }
 }
-
-// const keyB = new Key({})
-// keyB.sub.innerHTML = '';

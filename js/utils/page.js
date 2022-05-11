@@ -7,7 +7,6 @@
  */
 
 export default function create(el, classNames, child, parent, ...dataAttr) {
-  // ["id", 'menu'], ['code', '']
   let element = null;
   try {
     element = document.createElement(el);
@@ -33,7 +32,6 @@ export default function create(el, classNames, child, parent, ...dataAttr) {
     parent.appendChild(element);
   }
 
-  // <span id="" style="" data-code="" disabled></span> el.dataset.code = ""
   if (dataAttr.length) {
     dataAttr.forEach(([attrName, attrValue]) => {
       if (attrValue === '') {
