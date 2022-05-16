@@ -1,0 +1,36 @@
+{
+  "name": "virtual-keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx .",
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "publish": "npm run lint && npm run build && node publish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliaAnt/virtual-keyboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuliaAnt/virtual-keyboard/issues"
+  },
+  "homepage": "https://github.com/JuliaAnt/virtual-keyboard#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "gh-pages": "^3.2.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
